@@ -33,8 +33,6 @@ public class ButtonActionListener implements ActionListener {
      * @param op Operation which should be processed
      */
     public void actionPerformed(String op){
-        // TODO: delete debug print
-        System.out.println(op);
         try{
             // If field show error message, clear it
             if (this.exceptionSender.getIsErrorShow()){

@@ -24,8 +24,8 @@ public class CalculaterShowController {
     }
 
     public void removeLastEntered(){
-        String test = this.fullEq.getText().substring(0, this.indexStart);
-        this.fullEq.setText(test);
+        String removedLast = this.fullEq.getText().substring(0, this.indexStart);
+        this.fullEq.setText(removedLast);
         this.indexStart = -1;
     }
 

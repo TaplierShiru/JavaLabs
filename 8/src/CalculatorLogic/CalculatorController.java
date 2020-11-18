@@ -34,7 +34,6 @@ public class CalculatorController {
     }
 
     public void sendSingleEq(String newSingleEq){
-        // 3 - sqrt(8) = bad
         // Clear all
         if (OperationController.isReset(newSingleEq)){
             this.resetAllControls();
@@ -93,10 +92,6 @@ public class CalculatorController {
                 return;
 
             }
-
-            // Repeat for other numbers, we have some first number
-            // Just apply operation to first with new number (second)
-            // To number that we have
 
             // Apply operation
             this.applyOP(newSingleEq);

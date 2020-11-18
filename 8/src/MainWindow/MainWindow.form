@@ -107,7 +107,7 @@
           <text value="3"/>
         </properties>
       </component>
-      <component id="cafba" class="javax.swing.JTextField" binding="textField_main_action">
+      <component id="cafba" class="javax.swing.JTextField" binding="textFieldMainAction">
         <constraints>
           <grid row="1" column="0" row-span="1" col-span="4" vsize-policy="0" hsize-policy="0" anchor="8" fill="1" indent="0" use-parent-layout="false">
             <minimum-size width="60" height="60"/>
@@ -118,7 +118,7 @@
           <text value=""/>
         </properties>
       </component>
-      <component id="c452c" class="javax.swing.JTextField" binding="textField_full_eq">
+      <component id="c452c" class="javax.swing.JTextField" binding="textFieldFullEq">
         <constraints>
           <grid row="0" column="0" row-span="1" col-span="4" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
             <preferred-size width="150" height="-1"/>
@@ -126,7 +126,7 @@
         </constraints>
         <properties/>
       </component>
-      <component id="7a442" class="javax.swing.JButton" binding="button_finish">
+      <component id="7a442" class="javax.swing.JButton" binding="buttonFinish">
         <constraints>
           <grid row="7" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false">
             <minimum-size width="60" height="60"/>
@@ -137,7 +137,7 @@
           <text value="="/>
         </properties>
       </component>
-      <component id="a502b" class="javax.swing.JButton" binding="button_calc_point">
+      <component id="a502b" class="javax.swing.JButton" binding="buttonCalcPoint">
         <constraints>
           <grid row="7" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false">
             <minimum-size width="60" height="60"/>

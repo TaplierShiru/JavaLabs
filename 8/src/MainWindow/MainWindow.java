@@ -2,9 +2,11 @@ package MainWindow;
 
 import CalculatorLogic.CalculatorController;
 import Utils.ButtonActionListener;
-import Utils.KeyActionListener;
+import Utils.CalculatorKeyActionDispatcher;
 
 import javax.swing.*;
+import java.awt.*;
+
 
 public class MainWindow extends JFrame {
     private JPanel mainPanel;
@@ -18,12 +20,12 @@ public class MainWindow extends JFrame {
     private JButton buttonNum9;
     private JButton buttonNum6;
     private JButton buttonNum3;
-    private JButton button_finish;
-    private JButton button_calc_point;
+    private JButton buttonFinish;
+    private JButton buttonCalcPoint;
 
-    private JTextField textField_main_action;
+    private JTextField textFieldMainAction;
     private JButton buttonNum0;
-    private JTextField textField_full_eq;
+    private JTextField textFieldFullEq;
     private JButton buttonPlusSign;
     private JButton buttonMinusSign;
     private JButton buttonMultSign;
@@ -34,36 +36,37 @@ public class MainWindow extends JFrame {
     private JButton buttonClearLastNum;
 
     private ButtonActionListener buttonActionListener;
-    private KeyActionListener keyActionListener;
+    private CalculatorKeyActionDispatcher calculatorKeyActionDispatcher ;
     private CalculatorController calculatorController;
     private CalculaterShowController calculatorShowerController;
     private ExceptionSender exceptionSender;
 
     public MainWindow(){
-        setContentPane(mainPanel);
-        setVisible(true);
+        this.setContentPane(mainPanel);
+        this.setVisible(true);
         this.setFocusable(true);
-        setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        this.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 
-        setSize(300, 500);
+        this.setSize(300, 500);
         // If we put null, window will be at the center
-        setLocationRelativeTo(null);
+        this.setLocationRelativeTo(null);
 
-        this.textField_full_eq.setEditable(false);
-        this.textField_main_action.setEditable(false);
+        this.textFieldFullEq.setEditable(false);
+        this.textFieldMainAction.setEditable(false);
 
         this.calculatorShowerController = new CalculaterShowController(
-                this.textField_full_eq,
-                this.textField_main_action
+                this.textFieldFullEq,
+                this.textFieldMainAction
         );
 
         this.calculatorController = new CalculatorController(this.calculatorShowerController);
-        this.exceptionSender = new ExceptionSender(this.textField_full_eq);
+        this.exceptionSender = new ExceptionSender(this.textFieldFullEq);
         this.buttonActionListener = new ButtonActionListener(this.calculatorController, this.exceptionSender);
 
-        this.keyActionListener = new KeyActionListener(this.buttonActionListener);
-        this.addKeyListener(this.keyActionListener);
+        this.calculatorKeyActionDispatcher = new CalculatorKeyActionDispatcher(this.buttonActionListener);
         this.initButtonListener();
+
+        KeyboardFocusManager.getCurrentKeyboardFocusManager().addKeyEventDispatcher(this.calculatorKeyActionDispatcher);
     }
 
     private void initButtonListener(){
@@ -84,9 +87,9 @@ public class MainWindow extends JFrame {
         this.buttonDivSign.addActionListener(this.buttonActionListener);
         this.buttonPowSign.addActionListener(this.buttonActionListener);
         this.buttonSqrtSign.addActionListener(this.buttonActionListener);
-        this.button_calc_point.addActionListener(this.buttonActionListener);
+        this.buttonCalcPoint.addActionListener(this.buttonActionListener);
 
-        this.button_finish.addActionListener(this.buttonActionListener);
+        this.buttonFinish.addActionListener(this.buttonActionListener);
         this.ButtonDelAll.addActionListener(this.buttonActionListener);
         this.buttonClearLastNum.addActionListener(this.buttonActionListener);
 
